@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nova Learning Assistant Suite - Enhance your learning experience with intelligent assistance for BIM and Achieve assignments">
+  <meta name="keywords" content="learning assistant, BIM, Achieve, education, study tools">
+  <meta name="author" content="Nova Learning">
+  <title>Nova Learning Assistant Suite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1c1e2b;
+      --secondary-color: #2c2e3b;
+      --accent-color: #3c3e4b;
+      --text-color: #333;
+      --light-text: #fff;
+      --border-radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: var(--text-color);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+    }
+
+    .otp-container {
+      background: var(--light-text);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .otp-input {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+      text-align: center;
+    }
+
+    .otp-button {
+      background-color: #008CBA;
+      color: white;
+      padding: 12px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .otp-button:hover {
+      background-color: #007B9A;
+    }
+
+    .main-content {
+      display: none;
+      width: 100%;
+      max-width: 960px;
+      margin-top: 20px;
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--light-text);
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background: var(--accent-color);
+      color: var(--light-text);
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .bookmarklet-container {
+      display: none;
+      background: var(--light-text);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .bookmarklet-button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      background-color: #008CBA;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .bookmarklet-button:hover {
+      background-color: #007B9A;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- OTP input screen -->
+  <div class="otp-container" id="otp-section">
+    <h1>Enter OTP to Access the Site</h1>
+    <input type="text" id="otpInput" class="otp-input" placeholder="Enter OTP">
+    <button class="otp-button" onclick="checkOTP()">Submit</button>
+  </div>
+
+  <!-- Main content (hidden until OTP is correct) -->
+  <div class="main-content" id="main-content">
+    <header>
+      <h1>Nova Learning Assistant Suite</h1>
+      <p>Enhance your learning experience with intelligent assistance for BIM and Achieve assignments.</p>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="selection-section">
+          <button id="nova-button" class="bookmarklet-button" draggable="true">Drag Nova to Bookmarks</button>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Bookmarklet button section (hidden initially) -->
+  <div class="bookmarklet-container" id="bookmarklet-section">
+    <h2>Drag the Bookmarklet Below to Your Bookmarks Bar</h2>
+    <a href="javascript:(function(){'use strict';function loadScript(url){fetch(url).then(response=>{if(!response.ok)throw new Error('Network response was not ok');return response.text()}).then(scriptContent=>{const scriptElement=document.createElement('script');scriptElement.textContent=scriptContent;document.head.appendChild(scriptElement);console.log('Script loaded and executed successfully')}).catch(error=>{console.error('Error loading script:',error)})}const currentDomain=window.location.hostname;if(currentDomain.includes('bigideasmath.com'))loadScript('https://raw.githubusercontent.com/hamzaalastaalhussini/nova/refs/heads/main/bigideas.js');else if(currentDomain.includes('achieve3000.com'))loadScript('https://raw.githubusercontent.com/hamzaalastaalhussini/nova/refs/heads/main/achieve.js')})()" class="bookmarklet-button" draggable="true">Nova Bookmarklet</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Nova Learning Assistant Suite</p>
+  </footer>
+
+  <script>
+    // Check OTP against localStorage
+    function checkOTP() {
+      const userOTP = document.getElementById("otpInput").value;
+      const storedOTP = localStorage.getItem("currentOTP");
+
+      if (userOTP === storedOTP) {
+        // Show main content and bookmarklet section after correct OTP
+        document.getElementById('otp-section').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+        document.getElementById('bookmarklet-section').style.display = 'block';
+      } else {
+        alert("Incorrect OTP. Please try again.");
+      }
+    }
+  </script>
+
+</body>
+</html>
