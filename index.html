@@ -166,12 +166,14 @@
   </footer>
 
   <script>
-    // Check OTP against localStorage
+    // Set static OTP value
+    const staticOTP = "NOVA@782";
+
+    // Check OTP against static value
     function checkOTP() {
       const userOTP = document.getElementById("otpInput").value;
-      const storedOTP = localStorage.getItem("currentOTP");
 
-      if (userOTP === storedOTP) {
+      if (userOTP === staticOTP) {
         // Show main content and bookmarklet section after correct OTP
         document.getElementById('otp-section').style.display = 'none';
         document.getElementById('main-content').style.display = 'block';
