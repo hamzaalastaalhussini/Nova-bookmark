@@ -40,9 +40,16 @@
 
   <script>
     function generateOTP() {
-      const otp = Math.floor(100000 + Math.random() * 900000).toString();
-      localStorage.setItem("currentOTP", otp);
-      alert("OTP generated: " + otp);
+      fetch('/generate-otp')
+        .then(res => res.json())
+        .then(data => {
+          localStorage.setItem("currentOTP", data.otp);
+          alert("OTP generated: " + data.otp);
+        })
+        .catch(err => {
+          console.error("Error:", err);
+          alert("Failed to generate OTP");
+        });
     }
   </script>
 </body>

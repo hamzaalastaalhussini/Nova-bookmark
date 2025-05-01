@@ -27,6 +27,10 @@ app.post('/validate-otp', (req, res) => {
   res.json({ valid: otp === storedOTP });
 });
 
+app.get('/otp-generator', (req, res) => {
+  res.sendFile(path.join(__dirname, 'otp-generator.html'));
+});
+
 // Start server
 app.listen(port, () => {
   console.log(`✅ Server running at http://localhost:${port}`);
