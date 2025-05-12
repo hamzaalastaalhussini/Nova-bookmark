@@ -1,188 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="google-site-verification" content="Q24C-qInwalyqOIOejcNgE5jYnL2FqUfbNzwTJKV59U" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Nova Learning Assistant Suite - Enhance your learning experience with intelligent assistance for BIM and Achieve assignments">
-  <meta name="keywords" content="learning assistant, BIM, Achieve, education, study tools">
-  <meta name="author" content="Nova Learning">
-  <title>Nova Learning Assistant Suite</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Nova Learning Assistant Suite</title><title>Nova Learning Assistant Suite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #1c1e2b;
-      --secondary-color: #2c2e3b;
-      --accent-color: #3c3e4b;
-      --text-color: #333;
-      --light-text: #fff;
-      --border-radius: 12px;
-      --transition: all 0.3s ease;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    /* Global Styles */
     body {
       font-family: 'Nunito', sans-serif;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      color: var(--text-color);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 0;
       margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1c1e2b, #2c2e3b);
+      color: #333;
+      line-height: 1.6;
     }
-
-    .otp-container {
-      background: var(--light-text);
-      padding: 2rem;
-      border-radius: var(--border-radius);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 400px;
+    header {
+      background: #3c3e4b;
+      color: #fff;
+      padding: 30px 20px;
       text-align: center;
     }
-
-    h1 {
-      color: var(--primary-color);
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
     }
-
-    .otp-input {
-      padding: 10px;
-      font-size: 16px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      width: 100%;
-      text-align: center;
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.2em;
     }
-
-    .otp-button {
-      background-color: #008CBA;
-      color: white;
-      padding: 12px 28px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .otp-button:hover {
-      background-color: #007B9A;
-    }
-
-    .main-content {
-      display: none;
-      width: 100%;
+    .container {
       max-width: 960px;
-      margin-top: 20px;
-      text-align: center;
-      padding: 2rem;
-      background-color: var(--light-text);
-      border-radius: var(--border-radius);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-
-    footer {
-      background: var(--accent-color);
-      color: var(--light-text);
-      padding: 1.5rem;
-      text-align: center;
-      margin-top: auto;
+    section {
+      margin-bottom: 40px;
     }
-
+    h2, h3, h4 {
+      color: #1c1e2b;
+    }
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+    }
     .bookmarklet-container {
-      display: none;
-      background: var(--light-text);
-      padding: 2rem;
-      border-radius: var(--border-radius);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 400px;
       text-align: center;
-      margin-top: 2rem;
+      padding: 20px;
+      border: 2px dashed #ccc;
+      border-radius: 12px;
+      margin-bottom: 30px;
     }
-
-    .bookmarklet-button {
-      padding: 10px;
-      font-size: 16px;
-      margin-top: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      cursor: pointer;
-      background-color: #008CBA;
-      color: white;
-      text-decoration: none;
+    .bookmarklet {
       display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #2c2e3b;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      cursor: move;
+      transition: background 0.2s ease;
+      -webkit-user-drag: element;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      touch-action: none;
     }
-
-    .bookmarklet-button:hover {
-      background-color: #007B9A;
+    .bookmarklet:hover {
+      background-color: #3c3e4b;
+    }
+    ol, ul {
+      margin-left: 20px;
+    }
+    a.github-link {
+      color: #2c2e3b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.github-link:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      background: #3c3e4b;
+      color: #fff;
+      padding: 20px;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Nova Learning Assistant Suite</h1>
+    <p>A collection of browser scripts that enhance your learning experience during BIM and Achieve assignments.</p>
+  </header>
 
-  <!-- OTP input screen -->
-  <div class="otp-container" id="otp-section">
-    <h1>Enter OTP to Access the Site</h1>
-    <input type="text" id="otpInput" class="otp-input" placeholder="Enter OTP">
-    <button class="otp-button" onclick="checkOTP()">Submit</button>
+  <div class="container">
+    <!-- Bookmarklet Installation Section -->
+    <section class="bookmarklet-container">
+      <h2>Bookmarklet Installation</h2>
+      <p>To use the Nova bookmarklet, follow these simple steps:</p>
+      <ol>
+        <li><strong>Visit the GitHub Pages Site:</strong> Go to <a class="github-link" href="https://cpmjaguar1234.github.io/nova" target="_blank">Nova Bookmarklet Site</a>.</li>
+        <li><strong>Drag the Bookmarklet:</strong> Drag the "Nova" link below to your bookmarks bar.</li>
+        <li><strong>Use the Bookmarklet:</strong> Navigate to a supported site (e.g., <em>bigideasmath.com</em> or <em>achieve3000.com</em>) and click the bookmarklet to execute the script.</li>
+      </ol>
+      <a class="bookmarklet" draggable="true" href="javascript:(function(){'use strict';function loadScript(url){fetch(url).then(response=>{if(!response.ok)throw new Error('Network response was not ok');return response.text()}).then(scriptContent=>{const scriptElement=document.createElement('script');scriptElement.textContent=scriptContent;document.head.appendChild(scriptElement);console.log('Script loaded and executed successfully')}).catch(error=>{console.error('Error loading script:',error)})}const currentDomain=window.location.hostname;if(currentDomain.includes('bigideasmath.com'))loadScript('https://raw.githubusercontent.com/Cpmjaguar1234/nova/refs/heads/main/bigideas.js');else if(currentDomain.includes('achieve3000.com'))loadScript('https://raw.githubusercontent.com/Cpmjaguar1234/nova/refs/heads/main/achieve.js')})()" title="Drag me to your bookmarks bar">Nova</a>
+    </section>
+
+    <!-- Documentation Section -->
+    <section>
+      <h2>Documentation</h2>
+      <p><strong>Overview:</strong> Nova is a suite of browser scripts designed to provide intelligent assistance during BIM and Achieve assignments. Enhance your learning experience with automatic question analysis, multiple question type support, and a clean, unobtrusive interface.</p>
+      
+      <h3>Tools in the Suite</h3>
+      <h4>BIM Cheat Assistant</h4>
+      <ul>
+        <li>Automatic question analysis and answer suggestions for BIM assignments</li>
+        <li>Support for multiple choice, True/False, and fill-in-the-blank questions</li>
+        <li>Clean and unobtrusive interface</li>
+      </ul>
+      <h4>Achieve Cheat Assistant</h4>
+      <ul>
+        <li>Intelligent assistance for Achieve assignments</li>
+        <li>Seamless integration with the Achieve platform</li>
+        <li>Enhanced learning support features</li>
+      </ul>
+
+      <h3>Features</h3>
+      <ul>
+        <li>Automatic question analysis and answer suggestions</li>
+        <li>Support for multiple question types</li>
+        <li>Clean and unobtrusive interface</li>
+        <li>Cross-platform compatibility</li>
+      </ul>
+
+      <h3>Supported Sites</h3>
+      <ul>
+        <li><strong>Big Ideas Math:</strong> Automatically loads the script for <em>bigideasmath.com</em>.</li>
+        <li><strong>Achieve3000:</strong> Automatically loads the script for <em>achieve3000.com</em>.</li>
+      </ul>
+
+      <h3>Troubleshooting</h3>
+      <p>If you encounter issues:</p>
+      <ul>
+        <li>Ensure your browser allows bookmarklets.</li>
+        <li>Verify that you are visiting a supported site.</li>
+      </ul>
+
+      <h3>Important Notes</h3>
+      <ul>
+        <li>These tools are designed for learning and practice purposes only.</li>
+        <li>Use responsibly and ethically.</li>
+        <li>Always verify answers and understand underlying concepts.</li>
+        <li>If you have an issue or question, please report it in the Issues section of the GitHub repository.</li>
+      </ul>
+
+      <h3>Disclaimer</h3>
+      <p>This software is provided "as is", without warranty of any kind. The authors are not responsible for any consequences of using these tools.</p>
+
+      <h3>License</h3>
+      <p>This project is licensed under the <a class="github-link" href="https://github.com/cpmjaguar1234/nova/blob/main/LICENSE" target="_blank">GNU General Public License v3.0</a>.</p>
+
+      <h3>Contributing</h3>
+      <p>Contributions are welcome! Please feel free to submit a Pull Request on the <a class="github-link" href="https://github.com/cpmjaguar1234/nova" target="_blank">GitHub repository</a>.</p>
+      
+      <h3>Contact</h3>
+      <p>For more information or support, join the <a href="https://discord.gg/wP35JwQgns">Discord</a></p>
+    </section>
   </div>
-
-  <!-- Main content (hidden until OTP is correct) -->
-  <div class="main-content" id="main-content">
-    <header>
-      <h1>Nova Learning Assistant Suite</h1>
-      <p>Enhance your learning experience with intelligent assistance for BIM and Achieve assignments.</p>
-    </header>
-
-    <main>
-      <div class="container">
-        <section class="selection-section">
-          <button id="nova-button" class="bookmarklet-button" draggable="true">Drag Nova to Bookmarks</button>
-        </section>
-      </div>
-    </main>
-  </div>
-
-  <!-- Bookmarklet button section (hidden initially) -->
-<div class="bookmarklet-container" id="bookmarklet-section">
-  <h2>Drag the Bookmarklet Below to Your Bookmarks Bar</h2>
-  <a href="javascript:(function(){'use strict';function loadScript(url){fetch(url).then(response=>{if(!response.ok)throw new Error('Network response was not ok');return response.text()}).then(scriptContent=>{const scriptElement=document.createElement('script');scriptElement.textContent=scriptContent;document.head.appendChild(scriptElement);console.log('Script loaded and executed successfully')}).catch(error=>{console.error('Error loading script:',error)})}const currentDomain=window.location.hostname;if(currentDomain.includes('bigideasmath.com'))loadScript('https://raw.githubusercontent.com/Cpmjaguar1234/nova-bookmark/main/bigideas.js');else if(currentDomain.includes('achieve3000.com'))loadScript('https://raw.githubusercontent.com/Cpmjaguar1234/nova-bookmark/main/achieve.js')})()" class="bookmarklet-button" draggable="true">Nova Bookmarklet</a>
-</div>
 
   <footer>
     <p>&copy; 2025 Nova Learning Assistant Suite</p>
   </footer>
-
-  <script>
-    // Set static OTP value
-    const staticOTP = "NOVA@782";
-
-    // Check OTP against static value
-    function checkOTP() {
-      const userOTP = document.getElementById("otpInput").value;
-
-      if (userOTP === staticOTP) {
-        // Show main content and bookmarklet section after correct OTP
-        document.getElementById('otp-section').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
-        document.getElementById('bookmarklet-section').style.display = 'block';
-      } else {
-        alert("Incorrect OTP. Please try again.");
-      }
-    }
-  </script>
-
 </body>
 </html>

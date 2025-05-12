@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nova Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #1c1e2b;
+      color: white;
+      text-align: center;
+      padding-top: 4rem;
+    }
+
+    #main-content {
+      display: none;
+    }
+
+    .bookmarklet-button {
+      margin-top: 2rem;
+      padding: 12px 20px;
+      background: #00aaff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .bookmarklet-button:hover {
+      background-color: #007B9A;
+    }
+  </style>
+</head>
+<body>
+  <div id="main-content">
+    <h1 id="welcome-text">Welcome!</h1>
+    <div id="bookmarklet-section" style="display: none;">
+      <p>Drag the button below to your bookmarks bar:</p>
+      <a href="javascript:(function(){'use strict';function loadScript(url){fetch(url).then(r=>r.text()).then(code=>{let s=document.createElement('script');s.textContent=code;document.head.appendChild(s);});})();"
+         class="bookmarklet-button" draggable="true">Nova Bookmarklet</a>
+    </div>
+  </div>
+
+  <script>
+    const BACKEND_URL = 'https://nova-bookmark.onrender.com';
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        window.location.href = "/"; // redirect to login
+        return;
+      }
+
+      fetch(`${BACKEND_URL}/verify-token`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (!data.valid) {
+          alert("Session expired. Please login again.");
+          localStorage.removeItem("token");
+          window.location.href = "/";
+          return;
+        }
+
+        document.getElementById('main-content').style.display = 'block';
+        document.getElementById('welcome-text').innerText = `Welcome ${data.email}!`;
+
+        if (data.approved) {
+          document.getElementById('bookmarklet-section').style.display = 'block';
+        } else {
+          document.getElementById('main-content').innerHTML += `
+            <p>Your account is not yet approved.</p>
+            <p><a href="https://discord.gg/QzWYFBWPpa" target="_blank" style="color: #00aaff;">Join our Discord</a> to purchase access.</p>
+          `;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
